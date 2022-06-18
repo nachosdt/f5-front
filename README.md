@@ -20,6 +20,8 @@ npm install
 ng serve
 ```
 
+Y a continuación abrir un navegador en la URL http://localhost:4200
+
 El back-end (Node.js) está desplegado en Heroku, por lo que no es necesario descargarlo. El código se puede consultar [aquí](https://github.com/nachosdt/f5-back).
 
 ## Proceso de desarrollo
