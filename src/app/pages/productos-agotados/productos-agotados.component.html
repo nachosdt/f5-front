@@ -4,6 +4,7 @@
     <app-product-card
       *ngFor="let producto of productsOutOfStock; index as i"
       [producto]="producto"
+      [showButtons]="false"
     >
     </app-product-card>
   </div>

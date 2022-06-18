@@ -9,9 +9,11 @@ import { ProductosService } from 'src/app/services/productos.service';
 })
 export class ProductCardComponent implements OnInit {
   @Input('producto') producto!: Producto;
+  @Input('showButtons') showButtons!: boolean;
   @Output('edit') edit: EventEmitter<Producto> = new EventEmitter<Producto>();
   @Output('delete') delete: EventEmitter<Producto> =
     new EventEmitter<Producto>();
+
   constructor(private productoService: ProductosService) {}
 
   ngOnInit(): void {}

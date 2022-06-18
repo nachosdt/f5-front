@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit {
     'Cargando productos ...',
   ];
   interval: any;
+
   constructor(private productService: ProductosService, private title: Title) {
     this.loadMessage = this.messages[0];
     this.changeLoadingMessage();
@@ -41,7 +42,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.title.setTitle('Home | Todos los productos');
+    this.title.setTitle('Un mal Día | Todos los productos');
   }
 
   prevPage() {

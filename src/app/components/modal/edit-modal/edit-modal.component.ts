@@ -19,10 +19,12 @@ import { ProductosService } from 'src/app/services/productos.service';
 export class EditModalComponent implements OnInit {
   showErrorMessage: boolean = false;
   errorMessage: string = '';
+
   @Input('producto') producto!: Producto;
   @Output('closeModal') closeModal: EventEmitter<any> = new EventEmitter<any>();
   @ViewChild('image') image!: ElementRef;
   @ViewChild('description') description!: ElementRef;
+
   constructor(private productoService: ProductosService) {}
 
   ngOnInit(): void {}

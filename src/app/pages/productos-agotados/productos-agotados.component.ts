@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 import { Producto } from 'src/app/models/producto';
 import { ProductosService } from 'src/app/services/productos.service';
@@ -10,7 +11,8 @@ import { ProductosService } from 'src/app/services/productos.service';
 })
 export class ProductosAgotadosComponent implements OnInit {
   productsOutOfStock!: Producto[];
-  constructor(private productsService: ProductosService) {
+
+  constructor(private productsService: ProductosService, private title: Title) {
     if (this.productsService.productList.length) {
       this.productsOutOfStock = this.productsService.productList.filter(
         (product) => product.outOfStock
@@ -30,5 +32,7 @@ export class ProductosAgotadosComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.title.setTitle('Un mal Día | Productos agotados');
+  }
 }

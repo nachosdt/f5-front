@@ -13,6 +13,7 @@
     <app-product-card
       *ngFor="let producto of productsToShow; index as i"
       [producto]="producto"
+      [showButtons]="true"
       (delete)="openDeleteProductModal($event)"
       (edit)="openEditProductModal($event)"
     >

@@ -14,8 +14,17 @@ main {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
+    align-items: flex-start;
+    justify-content: flex-start;
     gap: 30px;
+  }
+}
+
+@media screen and (max-width: 1650px) {
+  main {
+    .contenedor {
+      width: 90%;
+      justify-content: space-around;
+    }
   }
 }

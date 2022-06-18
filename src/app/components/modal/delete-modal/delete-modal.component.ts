@@ -11,8 +11,10 @@ import { ProductosService } from 'src/app/services/productos.service';
 export class DeleteModalComponent implements OnInit {
   showErrorMessage: boolean = false;
   errorMessage: string = '';
+
   @Input('producto') producto!: Producto;
   @Output('closeModal') closeModal: EventEmitter<any> = new EventEmitter<any>();
+
   constructor(private productoService: ProductosService) {}
 
   ngOnInit(): void {}
