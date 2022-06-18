@@ -1,0 +1,81 @@
+main {
+  min-height: calc(100vh - var(--header-height) - var(--footer-height));
+  .buscador {
+    padding: 50px 0;
+    text-align: center;
+    label {
+      font-weight: bold;
+    }
+    input {
+      width: 500px;
+      padding: 10px;
+      border-radius: 5px;
+      font-size: 16px;
+      border: 1px solid gray;
+      border-radius: 20px;
+    }
+    .buscar-btn {
+      margin-left: 20px;
+      border: none;
+      background-color: rgb(219, 0, 0);
+      color: #ffffff;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.7;
+      }
+      &:active {
+        background-color: rgb(231, 4, 4);
+        color: #ffffff;
+      }
+    }
+  }
+  .contenedor {
+    width: 85%;
+    margin: 0 auto;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+  }
+  .paginador {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    font-weight: bold;
+    button {
+      background-color: transparent;
+      border: none;
+      font-weight: bold;
+      opacity: 0.5;
+      cursor: pointer;
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+.hidden {
+  display: none;
+}
+.show {
+  display: block;
+}
+
+@media screen and (max-width: 1650px) {
+  main {
+    .contenedor {
+      width: 90%;
+      justify-content: space-around;
+    }
+  }
+}

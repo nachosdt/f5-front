@@ -1,0 +1,42 @@
+<app-header></app-header>
+<main>
+  <section class="buscador">
+    <label for="buscador">Buscador de productos: &nbsp;</label>
+    <input
+      type="text"
+      [formControl]="buscador"
+      (keypress)="checkEnterPress($event)"
+    />
+    <button class="buscar-btn" (click)="search(buscador.value)">Buscar</button>
+  </section>
+  <section class="contenedor">
+    <app-product-card
+      *ngFor="let producto of productsToShow; index as i"
+      [producto]="producto"
+      (delete)="openDeleteProductModal($event)"
+      (edit)="openEditProductModal($event)"
+    >
+    </app-product-card>
+    <div class="paginador" *ngIf="productsToShow">
+      <button (click)="prevPage()" *ngIf="page > 1">&lt;&nbsp;Anterior</button>
+      <p>Página {{ page }} de {{ pages }}</p>
+      <button (click)="nextPage()" *ngIf="page < pages">
+        Siguiente&nbsp;&gt;
+      </button>
+    </div>
+  </section>
+</main>
+<app-edit-modal
+  [producto]="selectedProduct"
+  id="edit"
+  class="hidden"
+  (closeModal)="closeEditModal($event)"
+></app-edit-modal>
+<app-delete-modal
+  [producto]="selectedProduct"
+  id="delete"
+  class="hidden"
+  (closeModal)="closeDeleteModal($event)"
+></app-delete-modal>
+<app-modal class="hidden"><h1>Hola</h1></app-modal>
+<app-footer></app-footer>

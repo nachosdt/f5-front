@@ -1,0 +1,21 @@
+main {
+  width: 100%;
+  min-height: calc(100vh - var(--header-height) - var(--footer-height));
+  .message {
+    margin: 0;
+    padding-top: 50px;
+    text-align: center;
+  }
+  .contenedor {
+    padding-top: 50px;
+    width: 85%;
+    margin: 0 auto;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+  }
+}

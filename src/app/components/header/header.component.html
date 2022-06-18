@@ -1,0 +1,23 @@
+<header id="header">
+  <div class="wrapper">
+    <h1 class="title">
+      Un mal
+      <img
+        class="logo"
+        src="/assets/logo.png"
+        alt="Logo del supermercado Día"
+      />
+    </h1>
+    <nav class="navbar">
+      <a routerLink="/" [ngClass]="page === 0 ? 'selected' : ''"
+        >Todos los productos</a
+      >
+      <a routerLink="/agotados" [ngClass]="page === 1 ? 'selected' : ''"
+        >Productos agotados</a
+      >
+      <a routerLink="/about" [ngClass]="page === 2 ? 'selected' : ''"
+        >Acerca de</a
+      >
+    </nav>
+  </div>
+</header>

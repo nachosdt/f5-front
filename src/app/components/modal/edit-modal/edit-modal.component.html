@@ -1,0 +1,34 @@
+<app-modal
+  *ngIf="producto"
+  (closeModal)="close({ modified: false, product: null })"
+>
+  <span
+    class="material-icons-outlined"
+    (click)="close({ modified: false, product: null })"
+    >close</span
+  >
+  <img
+    [src]="producto.image"
+    [alt]="'Imagen del producto ' + producto.description"
+  />
+  <form>
+    <label for="url">Url de la imagen:</label>
+    <input #image type="text" name="url" id="url" [value]="producto.image" />
+    <label for="description">Descripción:</label>
+    <textarea
+      #description
+      name="description"
+      id="description"
+      [value]="producto.description"
+    ></textarea>
+  </form>
+  <div class="buttons" *ngIf="!showErrorMessage">
+    <button class="edit" (click)="editProduct()">Aceptar</button>
+    <button class="cancel" (click)="close({ modified: false, product: null })">
+      Cancelar
+    </button>
+  </div>
+  <div class="error" *ngIf="showErrorMessage">
+    <p>Error: {{ errorMessage }}</p>
+  </div>
+</app-modal>

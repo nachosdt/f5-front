@@ -1,0 +1,21 @@
+<app-modal *ngIf="producto" (closeModal)="close({ deleted: false, id: '' })">
+  <span
+    class="material-icons-outlined"
+    (click)="close({ deleted: false, id: '' })"
+    >close</span
+  >
+  <p class="message">
+    ¿Seguro que quiere eliminar el producto
+    <span class="bolded">{{ this.producto.description }}</span>
+    ?
+  </p>
+  <div class="buttons" *ngIf="!showErrorMessage">
+    <button class="delete" (click)="deleteProduct()">Eliminar</button>
+    <button class="cancel" (click)="close({ deleted: false, id: '' })">
+      Cancelar
+    </button>
+  </div>
+  <div class="error" *ngIf="showErrorMessage">
+    <p>Error: {{ errorMessage }}</p>
+  </div>
+</app-modal>

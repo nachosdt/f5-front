@@ -1,0 +1,32 @@
+<article class="card">
+  <div class="producto">
+    <img
+      [src]="producto.image || 'assets/default-placeholder.png'"
+      onerror="this.onerror=null; this.src='assets/default-placeholder.png'"
+      [alt]="'Imagen de ' + producto.description"
+    />
+    <h2 class="title">
+      <a [href]="producto.url" target="_blank">{{ producto.description }}</a>
+    </h2>
+  </div>
+  <div class="info">
+    <p><span class="bolded">Categoría: </span>{{ producto.category }}</p>
+    <p><span class="bolded">Subategoría: </span>{{ producto.subcategory }}</p>
+    <p *ngIf="producto.type">
+      <span class="bolded">Tipo: </span>{{ producto.type }}
+    </p>
+  </div>
+  <div class="actions">
+    <button title="Editar" (click)="editProduct(producto)">
+      <span class="material-icons-outlined">edit</span>Editar
+    </button>
+    <button title="Eliminar" (click)="deleteProduct(producto)">
+      <span class="material-icons-outlined">delete</span>Eliminar
+    </button>
+    <button title="Marcar como agotado" (click)="outOfStockProduct(producto)">
+      <span class="material-icons-outlined"> notification_important </span
+      >Agotado
+    </button>
+  </div>
+  <p class="agotado" *ngIf="producto.outOfStock">¡Agotado!</p>
+</article>
