@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { Producto } from '../models/producto';
 
 @Injectable({
@@ -12,7 +11,7 @@ export class ProductosService {
   constructor(private http: HttpClient) {}
 
   async getProducts(): Promise<Producto[]> {
-    let url = 'http://localhost:3000/product';
+    let url = environment.serverURL + environment.productEndpoint;
     return new Promise((resolve, reject) => {
       this.http.get(url).subscribe({
         next: (data: any) => {
@@ -47,7 +46,7 @@ export class ProductosService {
   }
 
   async deleteProduct(id: string) {
-    let url = 'http://localhost:3000/product?id=' + id;
+    let url = environment.serverURL + environment.productEndpoint + '?id=' + id;
     return new Promise((resolve, reject) => {
       this.http.delete(url).subscribe({
         next: (data: any) => {
@@ -67,7 +66,7 @@ export class ProductosService {
   }
 
   async updateProduct(modifiedProduct: Producto) {
-    let url = 'http://localhost:3000/product';
+    let url = environment.serverURL + environment.productEndpoint;
     return new Promise((resolve, reject) => {
       this.http.put(url, modifiedProduct).subscribe({
         next: (data: any) => {
