@@ -23,9 +23,14 @@
     <button title="Eliminar" (click)="deleteProduct(producto)">
       <span class="material-icons-outlined">delete</span>Eliminar
     </button>
-    <button title="Marcar como agotado" (click)="outOfStockProduct(producto)">
+    <button
+      [title]="
+        producto.outOfStock ? 'Marcar como agotado' : 'Marcar como no agotado'
+      "
+      (click)="outOfStockProduct(producto)"
+    >
       <span class="material-icons-outlined"> notification_important </span
-      >Agotado
+      >{{ producto.outOfStock ? "Existente" : "Agotado" }}
     </button>
   </div>
   <p class="agotado" *ngIf="producto.outOfStock">¡Agotado!</p>

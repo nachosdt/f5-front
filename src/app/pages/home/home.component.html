@@ -9,7 +9,7 @@
     />
     <button class="buscar-btn" (click)="search(buscador.value)">Buscar</button>
   </section>
-  <section class="contenedor">
+  <section class="contenedor" *ngIf="productsToShow">
     <app-product-card
       *ngFor="let producto of productsToShow; index as i"
       [producto]="producto"
@@ -24,6 +24,9 @@
         Siguiente&nbsp;&gt;
       </button>
     </div>
+  </section>
+  <section *ngIf="!productsToShow" class="loading">
+    <p>{{ loadMessage }}</p>
   </section>
 </main>
 <app-edit-modal

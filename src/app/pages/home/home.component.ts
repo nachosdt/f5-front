@@ -16,7 +16,16 @@ export class HomeComponent implements OnInit {
   pages!: number;
   buscador = new FormControl('');
   selectedProduct!: Producto;
+  loadMessage!: string;
+  messages: string[] = [
+    'Cargando productos .',
+    'Cargando productos ..',
+    'Cargando productos ...',
+  ];
+  interval: any;
   constructor(private productService: ProductosService, private title: Title) {
+    this.loadMessage = this.messages[0];
+    this.changeLoadingMessage();
     // Get products from database
     this.productService
       .getProducts()
@@ -24,6 +33,7 @@ export class HomeComponent implements OnInit {
         this.allProducts = data;
         this.productsToShow = this.allProducts.slice(0, 42);
         this.pages = Math.ceil(this.allProducts.length / 42);
+        this.interval.clearInterval();
       })
       .catch((error) => {
         console.log(error);
@@ -114,5 +124,16 @@ export class HomeComponent implements OnInit {
     this.productsToShow = this.allProducts.slice(0, 42);
     this.page = 1;
     this.pages = Math.ceil(this.allProducts.length / 42);
+  }
+
+  changeLoadingMessage() {
+    this.interval = setInterval(() => {
+      let index = this.messages.indexOf(this.loadMessage);
+      if (index === this.messages.length - 1) {
+        this.loadMessage = this.messages[0];
+      } else {
+        this.loadMessage = this.messages[index + 1];
+      }
+    }, 300);
   }
 }
